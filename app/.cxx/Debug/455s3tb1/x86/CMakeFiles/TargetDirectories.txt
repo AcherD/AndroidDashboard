@@ -1,0 +1,3 @@
+G:/PZST/code1/Android/Android_SocketCAN/app/.cxx/Debug/455s3tb1/x86/CMakeFiles/android_socketcan.dir
+G:/PZST/code1/Android/Android_SocketCAN/app/.cxx/Debug/455s3tb1/x86/CMakeFiles/edit_cache.dir
+G:/PZST/code1/Android/Android_SocketCAN/app/.cxx/Debug/455s3tb1/x86/CMakeFiles/rebuild_cache.dir

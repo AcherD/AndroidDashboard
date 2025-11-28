@@ -1,0 +1,3 @@
+D:/DATA/2024.IVI/Android/Android_SocketCAN/app/.cxx/Debug/556x4z5g/x86_64/CMakeFiles/android_socketcan.dir
+D:/DATA/2024.IVI/Android/Android_SocketCAN/app/.cxx/Debug/556x4z5g/x86_64/CMakeFiles/edit_cache.dir
+D:/DATA/2024.IVI/Android/Android_SocketCAN/app/.cxx/Debug/556x4z5g/x86_64/CMakeFiles/rebuild_cache.dir

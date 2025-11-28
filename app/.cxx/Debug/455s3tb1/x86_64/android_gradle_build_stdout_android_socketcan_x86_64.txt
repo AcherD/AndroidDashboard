@@ -1,0 +1,2 @@
+ninja: Entering directory `G:\PZST\code1\Android\Android_SocketCAN\app\.cxx\Debug\455s3tb1\x86_64'
+ninja: no work to do.

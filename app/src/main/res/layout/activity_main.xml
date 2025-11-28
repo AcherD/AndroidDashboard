@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="480px"
+    android:layout_height="1920px"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="480px"
+        android:layout_height="1920px"
+        android:rotation="-90"
+        android:scaleX="5"
+        android:scaleY="3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bg" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="24px"
+                android:layout_height="match_parent"
+                android:rotation="-90"
+                android:textAlignment="center"
+                android:textColor="@color/light_blue_400"
+                android:textColorHighlight="@color/light_blue_400"
+                android:textColorHint="@color/light_blue_400"
+                android:textColorLink="@color/light_blue_400"
+                android:textIsSelectable="false"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="60px"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/iv_rightlight"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:rotation="-90"
+                    android:scaleX="1"
+                    android:scaleY="1"
+                    app:srcCompat="@drawable/right_light" />
+
+                <ImageView
+                    android:id="@+id/iv_leftlight"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:rotation="-90"
+                    android:scaleX="1"
+                    android:scaleY="1"
+                    app:srcCompat="@drawable/left_light" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="288px"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+<!--                <GridLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:columnCount="3"-->
+<!--                    android:rowCount="3"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:padding="8dp">-->
+<!--                    -->
+<!--                </GridLayout>-->
+<!--                <FrameLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="90dp"-->
+<!--                    android:layout_weight="1">-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="100px"-->
+<!--                        android:layout_weight="1">-->
+
+<!--                        <ImageView-->
+<!--                            android:id="@+id/iv_abs"-->
+<!--                            android:layout_width="96px"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:rotation="270"-->
+<!--                            android:scaleX="1.2"-->
+<!--                            android:scaleY="1.2"-->
+<!--                            app:srcCompat="@drawable/abs" />-->
+
+<!--                        <ImageView-->
+<!--                            android:id="@+id/iv_BrakingSysErr"-->
+<!--                            android:layout_width="96px"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:rotation="270"-->
+<!--                            android:scaleX="1"-->
+<!--                            android:scaleY="1"-->
+<!--                            app:srcCompat="@drawable/brakingSysErr" />-->
+
+<!--                        <ImageView-->
+<!--                            android:id="@+id/iv_ChargingSysErr"-->
+<!--                            android:layout_width="96px"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:layout_weight="1"-->
+<!--                            android:rotation="-90"-->
+<!--                            android:scaleX="1.2"-->
+<!--                            android:scaleY="1.2"-->
+<!--                            app:srcCompat="@drawable/ChargingSysErr" />-->
+
+<!--                    </LinearLayout>-->
+
+
+<!--                </FrameLayout>-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100px"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:id="@+id/Airbag"
+                        android:layout_width="96px"
+                        android:layout_height="match_parent"
+                        android:rotation="270"
+                        android:scaleX="1.2"
+                        android:scaleY="1.2"
+                        app:srcCompat="@drawable/airbagnew" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120px"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/iv_abs"
+                        android:layout_width="96px"
+                        android:layout_height="match_parent"
+                        android:rotation="270"
+                        android:scaleX="1.5"
+                        android:scaleY="1.5"
+                        app:srcCompat="@drawable/absnew" />
+
+                    <ImageView
+                        android:id="@+id/iv_BrakingSysErr"
+                        android:layout_width="96px"
+                        android:layout_height="match_parent"
+                        android:rotation="270"
+                        android:scaleX="1"
+                        android:scaleY="1"
+                        app:srcCompat="@drawable/braking_sys_errnew" />
+
+                    <ImageView
+                        android:id="@+id/iv_ChargingSysErr"
+                        android:layout_width="96px"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:rotation="-90"
+                        android:scaleX="1.2"
+                        android:scaleY="1.2"
+                        app:srcCompat="@drawable/charging_sys_errnew" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120px"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/iv_EngineErr"
+                        android:layout_width="96px"
+                        android:layout_height="match_parent"
+                        android:rotation="270"
+                        android:scaleX="1.5"
+                        android:scaleY="1.5"
+                        app:srcCompat="@drawable/engine_errnew" />
+
+                    <ImageView
+                        android:id="@+id/iv_ESP"
+                        android:layout_width="96px"
+                        android:layout_height="match_parent"
+                        android:rotation="270"
+                        android:scaleX="1.2"
+                        android:scaleY="1.2"
+                        app:srcCompat="@drawable/espnew" />
+
+                    <ImageView
+                        android:id="@+id/iv_EngineOverheat"
+                        android:layout_width="96px"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:rotation="-90"
+                        android:scaleX="1.2"
+                        android:scaleY="1.2"
+                        app:srcCompat="@drawable/engine_overheatnew" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120px"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/iv_LowEngineOil"
+                        android:layout_width="96px"
+                        android:layout_height="match_parent"
+                        android:rotation="270"
+                        android:scaleX="1.5"
+                        android:scaleY="1.5"
+                        app:srcCompat="@drawable/low_engine_oilnew" />
+
+                    <ImageView
+                        android:id="@+id/iv_TirePressure"
+                        android:layout_width="96px"
+                        android:layout_height="match_parent"
+                        android:rotation="270"
+                        android:scaleX="1.5"
+                        android:scaleY="1.5"
+                        app:srcCompat="@drawable/tire_pressurenew" />
+
+                    <ImageView
+                        android:id="@+id/iv_MasterWaring"
+                        android:layout_width="96px"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:rotation="-90"
+                        android:scaleX="1.2"
+                        android:scaleY="1.2"
+                        app:srcCompat="@drawable/master_waringnew" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="10px"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/iv_lowbeam"
+                        android:layout_width="96px"
+                        android:layout_height="match_parent"
+                        android:rotation="90"
+                        android:scaleX="0.6"
+                        android:scaleY="0.6"
+                        app:srcCompat="@drawable/low_beam" />
+
+                    <ImageView
+                        android:id="@+id/iv_highbeam"
+                        android:layout_width="96px"
+                        android:layout_height="match_parent"
+                        android:rotation="90"
+                        android:scaleX="0.5"
+                        android:scaleY="0.5"
+                        app:srcCompat="@drawable/high_beam" />
+
+                    <ImageView
+                        android:id="@+id/iv_aeblevel"
+                        android:layout_width="96px"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:rotation="90"
+                        android:scaleX="0.5"
+                        android:scaleY="0.5"
+                        app:srcCompat="@drawable/aeb" />
+
+                </LinearLayout>
+
+                <com.example.android_socketcan.DashboardView
+                    android:id="@+id/speedView"
+                    android:layout_width="match_parent"
+                    android:layout_height="480px"
+                    android:rotation="-90" />
+
+                <com.example.android_socketcan.DashboardView
+                    android:id="@+id/engineView"
+                    android:layout_width="match_parent"
+                    android:layout_height="480px"
+                    android:layout_weight="1"
+                    android:rotation="-90" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="18dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iv_lock"
+                        android:layout_width="51dp"
+                        android:layout_height="96px"
+                        android:rotation="-90"
+                        android:scaleX="0.6"
+                        android:scaleY="0.6"
+                        app:srcCompat="@drawable/lock" />
+
+                    <ImageView
+                        android:id="@+id/iv_wiper"
+                        android:layout_width="43dp"
+                        android:layout_height="96px"
+                        android:rotation="-90"
+                        android:scaleX="0.6"
+                        android:scaleY="0.6"
+                        app:srcCompat="@drawable/wiper" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="260px"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/tv_gear"
+                        android:layout_width="94dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:rotation="-90"
+                        android:text="P"
+                        android:textAlignment="center"
+                        android:textColor="@color/light_blue_400"
+                        android:textColorHighlight="@color/light_blue_400"
+                        android:textColorHint="@color/light_blue_400"
+                        android:textColorLink="@color/light_blue_400"
+                        android:textSize="48sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

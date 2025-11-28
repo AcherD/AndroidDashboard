@@ -1,0 +1,7 @@
+Executable : D:\Android\Sdk\cmake\3.18.1\bin\ninja.exe
+arguments : 
+-C
+D:\IVI\Android\Android_SocketCAN\app\.cxx\Debug\41m6f2a2\armeabi-v7a
+android_socketcan
+jvmArgs : 
+

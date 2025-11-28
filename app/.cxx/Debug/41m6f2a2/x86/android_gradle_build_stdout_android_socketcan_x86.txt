@@ -1,0 +1,2 @@
+ninja: Entering directory `D:\IVI\Android\Android_SocketCAN\app\.cxx\Debug\41m6f2a2\x86'
+ninja: no work to do.
