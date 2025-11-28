@@ -90,8 +90,7 @@ public class CanSignalProcessor {
         // 0x180 ABSWarn
         HashMap<String, String> dic_ABSWarn = new HashMap<>();
         dic_ABSWarn.put("startBit", "0");
-        dic_ABSWarn.put("signalSize", "1");
-        dic_ABSWarn.put("byteOrder", "1");
+        dic_ABSWarn.put("byteOrder", "8");
         dic_ABSWarn.put("factor", "1.0");
         dic_ABSWarn.put("offset", "0.0");
         msgDics.put("ABSWarn", dic_ABSWarn);
@@ -99,7 +98,7 @@ public class CanSignalProcessor {
         // 0x181 BrakingSysErr
         HashMap<String, String> dic_BrakingSysErr = new HashMap<>();
         dic_BrakingSysErr.put("startBit", "0");
-        dic_BrakingSysErr.put("signalSize", "1");
+        dic_BrakingSysErr.put("signalSize", "8");
         dic_BrakingSysErr.put("byteOrder", "1");
         dic_BrakingSysErr.put("factor", "1.0");
         dic_BrakingSysErr.put("offset", "0.0");
@@ -108,7 +107,7 @@ public class CanSignalProcessor {
         // 0x182 ChargingSysErr
         HashMap<String, String> dic_ChargingSysErr = new HashMap<>();
         dic_ChargingSysErr.put("startBit", "0");
-        dic_ChargingSysErr.put("signalSize", "1");
+        dic_ChargingSysErr.put("signalSize", "8");
         dic_ChargingSysErr.put("byteOrder", "1");
         dic_ChargingSysErr.put("factor", "1.0");
         dic_ChargingSysErr.put("offset", "0.0");
@@ -117,7 +116,7 @@ public class CanSignalProcessor {
         // 0x183 EngineErr
         HashMap<String, String> dic_EngineErr = new HashMap<>();
         dic_EngineErr.put("startBit", "0");
-        dic_EngineErr.put("signalSize", "1");
+        dic_EngineErr.put("signalSize", "8");
         dic_EngineErr.put("byteOrder", "1");
         dic_EngineErr.put("factor", "1.0");
         dic_EngineErr.put("offset", "0.0");
@@ -126,7 +125,7 @@ public class CanSignalProcessor {
         //0x184 ESPWarn
         HashMap<String, String> dic_ESPWarn = new HashMap<>();
         dic_ESPWarn.put("startBit", "0");
-        dic_ESPWarn.put("signalSize", "1");
+        dic_ESPWarn.put("signalSize", "8");
         dic_ESPWarn.put("byteOrder", "1");
         dic_ESPWarn.put("factor", "1.0");
         dic_ESPWarn.put("offset", "0.0");
@@ -135,7 +134,7 @@ public class CanSignalProcessor {
         // 0x185 EngineOverheat
         HashMap<String, String> dic_EngineOverheat = new HashMap<>();
         dic_EngineOverheat.put("startBit", "0");
-        dic_EngineOverheat.put("signalSize", "1");
+        dic_EngineOverheat.put("signalSize", "8");
         dic_EngineOverheat.put("byteOrder", "1");
         dic_EngineOverheat.put("factor", "1.0");
         dic_EngineOverheat.put("offset", "0.0");
@@ -144,7 +143,7 @@ public class CanSignalProcessor {
         // 0x186 LowEngineOil
         HashMap<String, String> dic_LowEngineOil = new HashMap<>();
         dic_LowEngineOil.put("startBit", "0");
-        dic_LowEngineOil.put("signalSize", "1");
+        dic_LowEngineOil.put("signalSize", "8");
         dic_LowEngineOil.put("byteOrder", "1");
         dic_LowEngineOil.put("factor", "1.0");
         dic_LowEngineOil.put("offset", "0.0");
@@ -153,7 +152,7 @@ public class CanSignalProcessor {
         // 0x187 TirePressure
         HashMap<String, String> dic_TirePressure = new HashMap<>();
         dic_TirePressure.put("startBit", "0");
-        dic_TirePressure.put("signalSize", "1");
+        dic_TirePressure.put("signalSize", "8");
         dic_TirePressure.put("byteOrder", "1");
         dic_TirePressure.put("factor", "1.0");
         dic_TirePressure.put("offset", "0.0");
@@ -162,7 +161,7 @@ public class CanSignalProcessor {
         // 0x188 MasterWarning
         HashMap<String, String> dic_MasterWarning = new HashMap<>();
         dic_MasterWarning.put("startBit", "0");
-        dic_MasterWarning.put("signalSize", "1");
+        dic_MasterWarning.put("signalSize", "8");
         dic_MasterWarning.put("byteOrder", "1");
         dic_MasterWarning.put("factor", "1.0");
         dic_MasterWarning.put("offset", "0.0");
@@ -171,7 +170,7 @@ public class CanSignalProcessor {
         // 0x189 Airbag
         HashMap<String, String> dic_Airbag = new HashMap<>();
         dic_Airbag.put("startBit", "0");
-        dic_Airbag.put("signalSize", "1");
+        dic_Airbag.put("signalSize", "8");
         dic_Airbag.put("byteOrder", "1");
         dic_Airbag.put("factor", "1.0");
         dic_Airbag.put("offset", "0.0");
