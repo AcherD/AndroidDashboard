@@ -87,10 +87,12 @@ public class CanSignalProcessor {
         msgDic8.put("offset", "0.0");
         msgDics.put("AEBLvl", msgDic8);
 
+       /*
         // 0x180 ABSWarn
         HashMap<String, String> dic_ABSWarn = new HashMap<>();
         dic_ABSWarn.put("startBit", "0");
-        dic_ABSWarn.put("byteOrder", "8");
+        dic_ABSWarn.put("signalSize", "8");
+        dic_ABSWarn.put("byteOrder","1");
         dic_ABSWarn.put("factor", "1.0");
         dic_ABSWarn.put("offset", "0.0");
         msgDics.put("ABSWarn", dic_ABSWarn);
@@ -175,6 +177,97 @@ public class CanSignalProcessor {
         dic_Airbag.put("factor", "1.0");
         dic_Airbag.put("offset", "0.0");
         msgDics.put("Airbag", dic_Airbag);
+       */
+
+
+
+        //new 0x180 ABS[0,8] esp[16,24] tirePressure[28,32]
+        //abs
+        HashMap<String, String> dic_ABSWarn = new HashMap<>();
+        dic_ABSWarn.put("startBit", "0");
+        dic_ABSWarn.put("signalSize", "8");
+        dic_ABSWarn.put("byteOrder","1");
+        dic_ABSWarn.put("factor", "1.0");
+        dic_ABSWarn.put("offset", "0.0");
+        msgDics.put("ABSWarn", dic_ABSWarn);
+        //esp
+        HashMap<String, String> dic_ESPWarn = new HashMap<>();
+        dic_ESPWarn.put("startBit", "16");
+        dic_ESPWarn.put("signalSize", "8");
+        dic_ESPWarn.put("byteOrder", "1");
+        dic_ESPWarn.put("factor", "1.0");
+        dic_ESPWarn.put("offset", "0.0");
+        msgDics.put("ESPWarn", dic_ESPWarn);
+        //tirePressure
+        HashMap<String, String> dic_TirePressure = new HashMap<>();
+        dic_TirePressure.put("startBit", "32");
+        dic_TirePressure.put("signalSize", "8");
+        dic_TirePressure.put("byteOrder", "1");
+        dic_TirePressure.put("factor", "1.0");
+        dic_TirePressure.put("offset", "0.0");
+        msgDics.put("TirePressure", dic_TirePressure);
+
+        //new 0x181 EngineOverheat
+        HashMap<String, String> dic_EngineOverheat = new HashMap<>();
+        dic_EngineOverheat.put("startBit", "16");
+        dic_EngineOverheat.put("signalSize", "16");
+        dic_EngineOverheat.put("byteOrder", "1");
+        dic_EngineOverheat.put("factor", "1.0");
+        dic_EngineOverheat.put("offset", "0.0");
+        msgDics.put("EngineTemperature", dic_EngineOverheat);
+
+        //new 0x182 LowEngineOil
+        HashMap<String, String> dic_LowEngineOil = new HashMap<>();
+        dic_LowEngineOil.put("startBit", "48");
+        dic_LowEngineOil.put("signalSize", "8");
+        dic_LowEngineOil.put("byteOrder", "1");
+        dic_LowEngineOil.put("factor", "1.0");
+        dic_LowEngineOil.put("offset", "0.0");
+        msgDics.put("LowEngineOil", dic_LowEngineOil);
+
+        //brake_system_status
+        HashMap<String, String> brake_system_status = new HashMap<>();
+        brake_system_status.put("startBit", "8");
+        brake_system_status.put("signalSize", "8");
+        brake_system_status.put("byteOrder", "1");
+        brake_system_status.put("factor", "1.0");
+        brake_system_status.put("offset", "0.0");
+        msgDics.put("BrakeSystemStatus", brake_system_status);
+
+        //hand_brake
+        HashMap<String, String> hand_brake = new HashMap<>();
+        hand_brake.put("startBit", "24");
+        hand_brake.put("signalSize", "8");
+        hand_brake.put("byteOrder", "1");
+        hand_brake.put("factor", "1.0");
+        hand_brake.put("offset", "0.0");
+        msgDics.put("HandBrake", hand_brake);
+
+        //BattaryVoltage
+        HashMap<String, String> Battary_Voltage = new HashMap<>();
+        Battary_Voltage.put("startBit", "16");
+        Battary_Voltage.put("signalSize", "8");
+        Battary_Voltage.put("byteOrder", "1");
+        Battary_Voltage.put("factor", "1.0");
+        Battary_Voltage.put("offset", "0.0");
+        msgDics.put("BattaryVoltage", Battary_Voltage);
+        // EleGeneratorPower
+        HashMap<String, String> Ele_Generator_Power = new HashMap<>();
+        Ele_Generator_Power.put("startBit", "32");
+        Ele_Generator_Power.put("signalSize", "4");
+        Ele_Generator_Power.put("byteOrder", "1");
+        Ele_Generator_Power.put("factor", "1.0");
+        Ele_Generator_Power.put("offset", "0.0");
+        msgDics.put("EleGeneratorPower", Ele_Generator_Power);
+        //SteeringAngle
+        HashMap<String, String> Steering_Angle = new HashMap<>();
+        Steering_Angle.put("startBit", "16");
+        Steering_Angle.put("signalSize", "8");
+        Steering_Angle.put("byteOrder", "1");
+        Steering_Angle.put("factor", "1.0");
+        Steering_Angle.put("offset", "0.0");
+        msgDics.put("SteeringAngle", Steering_Angle);
+
 
     }
 

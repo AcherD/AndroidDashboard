@@ -4,27 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.view.View;
-import android.view.WindowManager;
 
 import android.content.Context;
 import android.hardware.display.DisplayManager;
 import android.view.Display;
 
 import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
-import android.graphics.ColorFilter;
-import androidx.core.content.ContextCompat;
 
 import java.util.Arrays;
-import java.util.Date;
-import java.text.SimpleDateFormat;
-
-import com.example.android_socketcan.FrameId;
-import com.example.android_socketcan.CanSignalProcessor;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -292,6 +282,61 @@ public class MainActivity extends AppCompatActivity {
 
                                     break;
 
+                                    //0x180 ABS[0,8] esp[16,24] tirePressure[28,32]
+                                case "180": {
+                                    // ABS
+                                    int ABSWarn = (int) CanSignalProcessor.SignalGet(str, "ABSWarn");
+                                    pulseLamp(iv_abs, (ABSWarn == 1));
+                                    //esp
+                                    int ESPWarn = (int) CanSignalProcessor.SignalGet(str, "ESPWarn");
+                                    pulseLamp(iv_ESP,(ESPWarn == 1));
+                                    //tirePressure
+                                    int TirePressure = (int) CanSignalProcessor.SignalGet(str, "TirePressure");
+                                    pulseLamp(iv_TirePressure,(TirePressure == 16));
+                                    break;
+                                }
+                                case "181":{
+                                    //EngineOverheat
+                                    double EngineTemperature = CanSignalProcessor.SignalGet(str, "EngineTemperature");
+                                    if (EngineTemperature >= 21845.0){
+                                        pulseLamp(iv_EngineOverheat,true);} //engine temperature over 5555 in HEX
+                                    break;
+                                }
+                                case "182":{
+                                    // LowEngineOil
+                                    double LowEngineOil = CanSignalProcessor.SignalGet(str, "LowEngineOil");
+                                    if (LowEngineOil <=50.0){
+                                        pulseLamp(iv_LowEngineOil,true); //LowEngineOil under 32 in HEX
+                                    }
+                                    break;
+                                }
+                                case "183":{
+                                    int Brake_System_Status = (int)CanSignalProcessor.SignalGet(str,"BrakeSystemStatus");
+                                    int Hand_Brake= (int)CanSignalProcessor.SignalGet(str,"HandBrake");
+                                    if (Brake_System_Status == 1 && Hand_Brake==16){
+                                        pulseLamp(iv_BrakingSysErr,true);
+                                    }
+
+                                    break;
+                                }
+                                case "184":{
+                                    double Battary_Voltage = CanSignalProcessor.SignalGet(str,"BattaryVoltage");
+                                    double Ele_Generator_Power = CanSignalProcessor.SignalGet(str,"EleGeneratorPower");
+                                    if (Battary_Voltage <= 150.0 && Ele_Generator_Power<=4.0){
+                                        pulseLamp(iv_ChargingSysErr,true);
+                                    }
+                                    break;
+                                }
+                                case "185":{
+                                    double Steering_Angle = CanSignalProcessor.SignalGet(str,"SteeringAngle");
+                                    double Brake_System_Status = CanSignalProcessor.SignalGet(str,"BrakeSystemStatus");
+                                    if (Steering_Angle >=90.0 && Brake_System_Status == 1.0){
+                                        pulseLamp(iv_ESP,true);
+                                    }
+                                    break;
+                                }
+
+                                /*
                                 case "180": {
                                     // ABS
                                     int ABSWarn = (int) CanSignalProcessor.SignalGet(str, "ABSWarn");
@@ -362,6 +407,8 @@ public class MainActivity extends AppCompatActivity {
 //                                    iv_Airbag.setVisibility((Airbag == 1) ? View.VISIBLE : View.INVISIBLE);
                                     break;
                                 }
+                                */
+
 
                             }
                         }
