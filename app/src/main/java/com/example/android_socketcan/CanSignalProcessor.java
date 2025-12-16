@@ -243,14 +243,14 @@ public class CanSignalProcessor {
         hand_brake.put("offset", "0.0");
         msgDics.put("HandBrake", hand_brake);
 
-        //BattaryVoltage
-        HashMap<String, String> Battary_Voltage = new HashMap<>();
-        Battary_Voltage.put("startBit", "16");
-        Battary_Voltage.put("signalSize", "8");
-        Battary_Voltage.put("byteOrder", "1");
-        Battary_Voltage.put("factor", "1.0");
-        Battary_Voltage.put("offset", "0.0");
-        msgDics.put("BattaryVoltage", Battary_Voltage);
+        //BatteryVoltage
+        HashMap<String, String> Battery_Voltage = new HashMap<>();
+        Battery_Voltage.put("startBit", "16");
+        Battery_Voltage.put("signalSize", "8");
+        Battery_Voltage.put("byteOrder", "1");
+        Battery_Voltage.put("factor", "1.0");
+        Battery_Voltage.put("offset", "0.0");
+        msgDics.put("BatteryVoltage", Battery_Voltage);
         // EleGeneratorPower
         HashMap<String, String> Ele_Generator_Power = new HashMap<>();
         Ele_Generator_Power.put("startBit", "32");
@@ -267,6 +267,14 @@ public class CanSignalProcessor {
         Steering_Angle.put("factor", "1.0");
         Steering_Angle.put("offset", "0.0");
         msgDics.put("SteeringAngle", Steering_Angle);
+        // 0x186 Airbag
+        HashMap<String, String> dic_Airbag = new HashMap<>();
+        dic_Airbag.put("startBit", "0");
+        dic_Airbag.put("signalSize", "8");
+        dic_Airbag.put("byteOrder", "1");
+        dic_Airbag.put("factor", "1.0");
+        dic_Airbag.put("offset", "0.0");
+        msgDics.put("Airbag", dic_Airbag);
 
 
     }

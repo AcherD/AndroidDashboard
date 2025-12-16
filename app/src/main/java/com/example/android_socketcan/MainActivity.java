@@ -42,11 +42,12 @@ public class MainActivity extends AppCompatActivity {
     private ImageView iv_TirePressure;
     private ImageView iv_MasterWaring;
     private ImageView iv_Airbag;
-//增加自动熄灭功能
+    private long id186WindowStartMs = 0;
+    private int  id186Cnt = 0;
+    //增加自动熄灭功能
     private final android.os.Handler lampHandler =
             new android.os.Handler(android.os.Looper.getMainLooper());
     private final java.util.Map<ImageView, Runnable> lampHideTasks = new java.util.HashMap<>();
-
     /** 当 on==true：立即显示，并在 500 ms 后自动隐藏；on==false：立即隐藏并取消定时 */
     private void pulseLamp(ImageView lamp, boolean on) {
         Runnable existing = lampHideTasks.get(lamp);
@@ -320,9 +321,9 @@ public class MainActivity extends AppCompatActivity {
                                     break;
                                 }
                                 case "184":{
-                                    double Battary_Voltage = CanSignalProcessor.SignalGet(str,"BattaryVoltage");
+                                    double Battery_Voltage = CanSignalProcessor.SignalGet(str,"BatteryVoltage");
                                     double Ele_Generator_Power = CanSignalProcessor.SignalGet(str,"EleGeneratorPower");
-                                    if (Battary_Voltage <= 150.0 && Ele_Generator_Power<=4.0){
+                                    if (Battery_Voltage <= 150.0 && Ele_Generator_Power<=4.0){
                                         pulseLamp(iv_ChargingSysErr,true);
                                     }
                                     break;
@@ -332,6 +333,29 @@ public class MainActivity extends AppCompatActivity {
                                     double Brake_System_Status = CanSignalProcessor.SignalGet(str,"BrakeSystemStatus");
                                     if (Steering_Angle >=90.0 && Brake_System_Status == 1.0){
                                         pulseLamp(iv_ESP,true);
+                                    }
+                                    break;
+                                }
+                                case "186":{
+                                    int Airbag = (int) CanSignalProcessor.SignalGet(str, "Airbag");
+                                    if (Airbag == 1) {
+                                        long now = android.os.SystemClock.uptimeMillis();
+
+                                        // 如果窗口还没开始，或者已经超出2000ms，则重开窗口
+                                        if (id186WindowStartMs == 0 || (now - id186WindowStartMs) > 3000) {
+                                            id186WindowStartMs = now;
+                                            id186Cnt = 1;
+                                        } else {
+                                            id186Cnt++;
+                                        }
+                                        // 2000ms内累计>=3条 -> 点亮 Master warning
+                                        if (id186Cnt >= 3) {
+                                            pulseLamp(iv_MasterWaring, true);
+
+                                            // 触发后重置，方便下一轮再次触发
+                                            id186WindowStartMs = 0;
+                                            id186Cnt = 0;
+                                        }
                                     }
                                     break;
                                 }
