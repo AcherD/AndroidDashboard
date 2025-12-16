@@ -289,8 +289,8 @@ public class MainActivity extends AppCompatActivity {
                                     int ABSWarn = (int) CanSignalProcessor.SignalGet(str, "ABSWarn");
                                     pulseLamp(iv_abs, (ABSWarn == 1));
                                     //esp
-                                    int ESPWarn = (int) CanSignalProcessor.SignalGet(str, "ESPWarn");
-                                    pulseLamp(iv_ESP,(ESPWarn == 1));
+                                    int EngineErr = (int) CanSignalProcessor.SignalGet(str, "EngineErr");
+                                    pulseLamp(iv_EngineErr,(EngineErr == 1));
                                     //tirePressure
                                     int TirePressure = (int) CanSignalProcessor.SignalGet(str, "TirePressure");
                                     pulseLamp(iv_TirePressure,(TirePressure == 16));

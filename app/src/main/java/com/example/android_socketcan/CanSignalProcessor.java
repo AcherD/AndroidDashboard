@@ -191,13 +191,13 @@ public class CanSignalProcessor {
         dic_ABSWarn.put("offset", "0.0");
         msgDics.put("ABSWarn", dic_ABSWarn);
         //esp
-        HashMap<String, String> dic_ESPWarn = new HashMap<>();
-        dic_ESPWarn.put("startBit", "16");
-        dic_ESPWarn.put("signalSize", "8");
-        dic_ESPWarn.put("byteOrder", "1");
-        dic_ESPWarn.put("factor", "1.0");
-        dic_ESPWarn.put("offset", "0.0");
-        msgDics.put("ESPWarn", dic_ESPWarn);
+        HashMap<String, String> dic_EngineErr = new HashMap<>();
+        dic_EngineErr.put("startBit", "16");
+        dic_EngineErr.put("signalSize", "8");
+        dic_EngineErr.put("byteOrder", "1");
+        dic_EngineErr.put("factor", "1.0");
+        dic_EngineErr.put("offset", "0.0");
+        msgDics.put("EngineErr", dic_EngineErr);
         //tirePressure
         HashMap<String, String> dic_TirePressure = new HashMap<>();
         dic_TirePressure.put("startBit", "32");
