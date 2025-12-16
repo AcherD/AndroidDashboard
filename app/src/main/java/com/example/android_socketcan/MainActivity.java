@@ -67,6 +67,39 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // ---- Master warning ----
+    private static final long MASTER_AND_WINDOW_MS = 6000; // 可调：两个条件允许的最大时间差
+    private long masterCondA_ts = -1;  // 最近一次满足条件A的时间(ms)
+    private long masterCondB_ts = -1;  // 最近一次满足条件B的时间(ms)
+    private long masterCondC_ts = -1;  // 最近一次满足条件C的时间(ms)
+    private boolean masterCondA_ok = false;
+    private boolean masterCondB_ok = false;
+    private boolean masterCondC_ok = false;
+
+    private void updateMasterWarningFromConds() {
+        long now = android.os.SystemClock.uptimeMillis();
+
+        boolean aValid = masterCondA_ok && (now - masterCondA_ts) <= MASTER_AND_WINDOW_MS;
+        boolean bValid = masterCondB_ok && (now - masterCondB_ts) <= MASTER_AND_WINDOW_MS;
+        boolean cValid = masterCondC_ok && (now - masterCondC_ts) <= MASTER_AND_WINDOW_MS;
+
+        boolean masterOn = aValid && bValid && cValid;
+        if (masterOn){
+            pulseLamp(iv_MasterWaring,true);
+            aValid = false;
+            bValid=false;
+            cValid =false;
+            masterCondA_ok = false;
+            masterCondB_ok = false;
+            masterCondC_ok = false;
+        }
+
+//        // 组合灯用持续显示，不用 pulseLamp（pulseLamp 会自动灭）
+//        iv_MasterWaring.setVisibility(masterOn ? View.VISIBLE : View.INVISIBLE);
+    }
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -294,13 +327,33 @@ public class MainActivity extends AppCompatActivity {
                                     //tirePressure
                                     int TirePressure = (int) CanSignalProcessor.SignalGet(str, "TirePressure");
                                     pulseLamp(iv_TirePressure,(TirePressure == 16));
+                                    //master warn condition
+                                    if (EngineErr==1){
+                                        masterCondA_ok = true;
+                                        masterCondA_ts = android.os.SystemClock.uptimeMillis();
+                                        updateMasterWarningFromConds();
+                                    }
+//                                    else {
+//                                        // 可选：如果希望条件必须“持续为1”才能算有效，就在这里置 false
+//                                        masterCondA_ok = false;
+//                                    }
+
                                     break;
                                 }
                                 case "181":{
                                     //EngineOverheat
                                     double EngineTemperature = CanSignalProcessor.SignalGet(str, "EngineTemperature");
                                     if (EngineTemperature >= 21845.0){
-                                        pulseLamp(iv_EngineOverheat,true);} //engine temperature over 5555 in HEX
+                                        pulseLamp(iv_EngineOverheat,true);//engine temperature over 5555 in HEX
+                                        masterCondB_ok = true;
+                                        masterCondB_ts = android.os.SystemClock.uptimeMillis();
+                                        updateMasterWarningFromConds();
+                                    }
+//                                    else {
+//                                        // 可选：如果希望条件必须“持续为1”才能算有效，就在这里置 false
+//                                        masterCondB_ok = false;
+//                                    }
+
                                     break;
                                 }
                                 case "182":{
@@ -308,7 +361,15 @@ public class MainActivity extends AppCompatActivity {
                                     double LowEngineOil = CanSignalProcessor.SignalGet(str, "LowEngineOil");
                                     if (LowEngineOil <=50.0){
                                         pulseLamp(iv_LowEngineOil,true); //LowEngineOil under 32 in HEX
+                                        masterCondC_ok = true;
+                                        masterCondC_ts = android.os.SystemClock.uptimeMillis();
+                                        updateMasterWarningFromConds();
                                     }
+//                                    else {
+//                                        // 可选：如果希望条件必须“持续为1”才能算有效，就在这里置 false
+//                                        masterCondB_ok = false;
+//                                    }
+
                                     break;
                                 }
                                 case "183":{
@@ -359,7 +420,7 @@ public class MainActivity extends AppCompatActivity {
                                     }
                                     break;
                                 }
-
+                              
                                 /*
                                 case "180": {
                                     // ABS
