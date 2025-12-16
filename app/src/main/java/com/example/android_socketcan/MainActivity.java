@@ -348,9 +348,9 @@ public class MainActivity extends AppCompatActivity {
                                         } else {
                                             id186Cnt++;
                                         }
-                                        // 2000ms内累计>=3条 -> 点亮 Master warning
+                                        // 2000ms内累计>=3条 -> 点亮 Airbag warning
                                         if (id186Cnt >= 3) {
-                                            pulseLamp(iv_MasterWaring, true);
+                                            pulseLamp(iv_Airbag, true);
 
                                             // 触发后重置，方便下一轮再次触发
                                             id186WindowStartMs = 0;
